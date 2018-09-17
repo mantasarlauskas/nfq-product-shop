@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaPencilAlt, FaTrashAlt, FaPlusCircle, FaMinusCircle } from 'react-icons/fa';
 import Highlighter from "react-highlight-words";
+import ReactTooltip from 'react-tooltip';
 
 export default ({ product: { name, price, description, count, id }, logo, onRemove, 
   editing, onEdit, orderIndex, onAddToOrder, onRemoveFromOrder, orderId, productSearchFilter }) =>  (
@@ -17,15 +18,18 @@ export default ({ product: { name, price, description, count, id }, logo, onRemo
               />
           </div>
           <div className="item-actions">
-            { orderIndex === undefined && count > 0 && <FaPlusCircle onClick={onAddToOrder}/> }
-            { orderIndex === undefined && <FaPencilAlt onClick={() => { window.scrollTo(0, 0); onEdit() }} /> }
-            { orderIndex === undefined && editing !== id && <FaTrashAlt onClick={onRemove} /> }
-            { orderIndex !== undefined && orderId === undefined && <FaMinusCircle onClick={onRemoveFromOrder} /> }
+            { orderIndex === undefined && count > 0 && <FaPlusCircle data-tip='Įtraukti į užsakymą' onClick={onAddToOrder}/> }
+            { orderIndex === undefined && <FaPencilAlt data-tip='Redaguoti' onClick={() => { window.scrollTo(0, 0); onEdit() }} /> }
+            { orderIndex === undefined && editing !== id && <FaTrashAlt data-tip='Šalinti' onClick={onRemove} /> }
+            { orderIndex !== undefined && orderId === undefined && 
+                <FaMinusCircle data-tip='Šalinti iš užsakymo' onClick={onRemoveFromOrder} /> 
+            }
           </div>
         </h5>
         <div className="item-price">Kaina: ${ price }</div>
         { orderIndex === undefined && <div className="item-count">Vienetų skaičius: { count }</div> }
         <div className="description mt-2">{ description }</div>   
       </div>
+      <ReactTooltip />
     </div>
 );

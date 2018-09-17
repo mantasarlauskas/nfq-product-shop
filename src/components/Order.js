@@ -3,6 +3,7 @@ import { FaTrashAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import Highlighter from "react-highlight-words";
 import dateformat from 'dateformat';
+import ReactTooltip from 'react-tooltip';
 
 export default ({ id, date, products, totalPrice, onRemove, onChange, orderSearchFilter }) => (
   <div className="media item">
@@ -17,7 +18,7 @@ export default ({ id, date, products, totalPrice, onRemove, onChange, orderSearc
             />
         </div>
         <div className="item-actions">
-          <FaTrashAlt onClick={() => onRemove(id)} />
+          <FaTrashAlt data-tip='Šalinti' onClick={() => onRemove(id)} />
         </div>
       </h5>
       <div className="font-weight-bold">
@@ -41,6 +42,7 @@ export default ({ id, date, products, totalPrice, onRemove, onChange, orderSearc
         Bendra suma: <span className="font-weight-normal">${ totalPrice }</span>
       </div>
     </div>
+    <ReactTooltip />
   </div>
 );
 
