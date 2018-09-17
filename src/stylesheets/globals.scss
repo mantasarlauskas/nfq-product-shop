@@ -1,0 +1,15 @@
+@mixin wrap-word {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  word-wrap: break-word;
+}
+
+%center-element {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+%shadow { box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); }

@@ -1,0 +1,7 @@
+.pagination-wrapper {
+  position: relative;
+  height: 30px;
+  
+  .pagination { @extend %center-element; }
+}
+

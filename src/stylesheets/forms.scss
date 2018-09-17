@@ -1,0 +1,42 @@
+
+.form {
+  @extend %shadow;
+  margin: 20px 0;
+  padding: 20px 10px 20px 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+
+  .alert { height: 35px; }
+
+  .form-control.edit-input { background: lightyellow; }
+  
+  .btn {
+    float: right;
+    min-width: 150px;
+  }
+}
+
+.search-input {
+
+  @media (max-width: 992px) { margin-bottom: 15px; }
+  
+  @media (max-width: 992px) and (min-width: 576px) { margin-top: 15px; }
+
+  .col-form-label {
+    position: relative;
+
+    > * { 
+      @extend %center-element; 
+
+      @media (max-width: 992px) { 
+        position: static; 
+        transform: none;
+      }
+    }
+  }
+}
+
+.search-logo {
+  margin-left: .75rem;
+
+  @media (max-width: 992px) { margin-left: 0; }
+}

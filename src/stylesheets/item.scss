@@ -1,0 +1,30 @@
+.item {
+  @extend %shadow;
+  margin: 20px 0;
+  padding: 10px;
+  border: 1px rgba(0, 0, 0, 0.1) solid;
+
+  .logo { width: 80px; }
+
+  .item-price, .item-count { @media (max-width: 568px) { @include wrap-word; } }
+
+  .description { @include wrap-word; }
+
+  .item-title {
+    float: left;
+    @media (max-width: 568px) { @include wrap-word; }
+  }
+
+  .item-actions {
+    float: right;
+
+    * {
+      cursor: pointer;
+      margin-right: 5px;
+    }
+
+    *:active { transform: translateY(1px); }
+
+    @media (max-width: 568px) { float: none; }
+  }
+}
